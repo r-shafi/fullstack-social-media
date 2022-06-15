@@ -1,0 +1,65 @@
+<div class="container">
+  <section>
+    <span *ngIf="!register">
+      <h1>Login</h1>
+      <form [formGroup]="loginForm">
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput autocomplete="email" formControlName="email" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input
+            type="password"
+            matInput
+            autocomplete="current-password"
+            formControlName="password"
+          />
+        </mat-form-field>
+        <button
+          [disabled]="loginForm.invalid"
+          mat-raised-button
+          (click)="submitForm()"
+          color="primary"
+        >
+          Login
+        </button>
+        <p (click)="toggleRegister()">Create an Account</p>
+      </form>
+    </span>
+  </section>
+  <!--  -->
+  <section>
+    <span *ngIf="register">
+      <h1>Register</h1>
+      <form [formGroup]="registerForm">
+        <mat-form-field appearance="outline">
+          <mat-label>Name</mat-label>
+          <input matInput autocomplete="name" formControlName="name" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput autocomplete="email" formControlName="email" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input
+            type="password"
+            matInput
+            autocomplete="new-password"
+            formControlName="password"
+          />
+        </mat-form-field>
+        <button
+          [disabled]="registerForm.invalid"
+          mat-raised-button
+          (click)="submitForm()"
+          color="primary"
+        >
+          Register
+        </button>
+        <p (click)="toggleRegister()">Already Have an Account? Login</p>
+      </form>
+    </span>
+  </section>
+</div>

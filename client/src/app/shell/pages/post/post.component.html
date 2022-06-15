@@ -1,0 +1,64 @@
+<div class="container" *ngIf="post$ | async as post">
+  <section class="top">
+    <h3>{{ post.author.name }}</h3>
+    <p class="time-date">
+      Created at
+      {{ post.createdAt | date: "MMM d y | hh:mm a" }}
+    </p>
+  </section>
+  <section class="content">
+    <p>{{ post.body }}</p>
+  </section>
+  <section class="likes">
+    <button
+      mat-icon-button
+      (click)="LUS.toggleLike(post._id, post).subscribe()"
+    >
+      <mat-icon [color]="LUS.isLiked(post.likes) ? 'warn' : ''">
+        {{ LUS.isLiked(post.likes) ? "favorite" : "favorite_border" }}
+      </mat-icon>
+      {{ post.likes.length }}
+    </button>
+    <p [title]="likedBy(post.likes)">
+      | {{ likedBy(post.likes) | slice: 0:30
+      }}{{ likedBy(post.likes).length > 30 ? "..." : "" }}
+    </p>
+  </section>
+  <section class="new-comment">
+    <form [formGroup]="comment">
+      <mat-form-field appearance="outline">
+        <mat-label>Write a Comment</mat-label>
+        <textarea matInput formControlName="comment"> </textarea>
+      </mat-form-field>
+      <button
+        mat-stroked-button
+        (click)="createComment()"
+        [disabled]="!comment.valid"
+      >
+        Comment
+      </button>
+    </form>
+  </section>
+  <section class="comments">
+    <ng-container *ngFor="let comment of post.comments">
+      <div
+        class="comment"
+        [class.fade-out]="deletedComments.includes(comment._id)"
+      >
+        <button
+          *ngIf="fds.isLoggedInUser(comment.author._id)"
+          mat-icon-button
+          class="delete"
+          (click)="deleteComment(comment._id, $event)"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+        <h4>{{ comment.author.name }}</h4>
+        <p class="time-date">
+          Commented at {{ comment.createdAt | date: "MMM d y | hh:mm a" }}
+        </p>
+        <p>{{ comment.comment }}</p>
+      </div>
+    </ng-container>
+  </section>
+</div>

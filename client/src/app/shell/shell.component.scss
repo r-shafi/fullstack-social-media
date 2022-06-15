@@ -1,0 +1,48 @@
+.container {
+  width: 90vw;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.toolbar-container {
+  width: 90vw;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  h2 {
+    cursor: pointer;
+  }
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  a {
+    text-decoration: none;
+    font-size: 0.9rem;
+    color: #aaaaaa80;
+  }
+  a.active-link {
+    color: #ffffff;
+  }
+}
+
+.blur {
+  background: rgba($color: #ffffff, $alpha: 0.1);
+  backdrop-filter: blur(8px);
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.content {
+  padding: 1rem 0;
+}

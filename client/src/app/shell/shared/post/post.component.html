@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="top">
+    <span>
+      <p>{{ post.author.name | titlecase }}</p>
+      <button
+        mat-icon-button
+        *ngIf="!FUS.isUser(post.author._id)"
+        (click)="FUS.toggleFollow(post.author._id)"
+        [title]="FUS.isFollowing(post.author._id) ? 'Unfollow' : 'Follow'"
+      >
+        <mat-icon>
+          {{ FUS.isFollowing(post.author._id) ? "group_remove" : "group_add" }}
+        </mat-icon>
+      </button>
+    </span>
+    <span>
+      <p>{{ post.createdAt | date: "MMM d y | hh:mm a" }}</p>
+      <mat-icon
+        [title]="post.privacy === 'public' ? 'Public Post' : 'Private Post'"
+      >
+        {{ post.privacy === "public" ? "public" : "lock" }}
+      </mat-icon>
+    </span>
+  </div>
+  <div class="content" [routerLink]="['..', 'post', post._id]">
+    <p>{{ post.body }}</p>
+  </div>
+  <div class="more">
+    <button
+      mat-icon-button
+      (click)="LUS.toggleLike(post._id, post).subscribe()"
+    >
+      {{ post.likes.length }}
+      <mat-icon title="Like" [color]="LUS.isLiked(post.likes) ? 'warn' : ''">
+        {{ LUS.isLiked(post.likes) ? "favorite" : "favorite_border" }}
+      </mat-icon>
+    </button>
+    <p [routerLink]="['..', 'post', post._id]">
+      <mat-icon title="Comment">forum</mat-icon>
+      {{ post.comments.length }}
+    </p>
+  </div>
+</div>

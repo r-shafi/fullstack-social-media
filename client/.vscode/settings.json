@@ -1,0 +1,9 @@
+{
+  "workbench.colorCustomizations": {
+    "titleBar.activeBackground": "#495057",
+    "titleBar.inactiveBackground": "#495057",
+    "titleBar.activeForeground": "#e9ecef",
+    "titleBar.inactiveForeground": "#e9ecef"
+  },
+  "cSpell.words": ["newsfeed"]
+}

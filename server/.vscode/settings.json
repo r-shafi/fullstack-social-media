@@ -1,0 +1,9 @@
+{
+  "cSpell.words": ["Unfollow"],
+  "workbench.colorCustomizations": {
+    "titleBar.activeBackground": "#10002b",
+    "titleBar.inactiveBackground": "#10002b",
+    "titleBar.inactiveForeground": "#c77dff",
+    "titleBar.activeForeground": "#c77dff"
+  }
+}

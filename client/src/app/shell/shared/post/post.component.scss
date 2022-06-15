@@ -1,0 +1,61 @@
+.container {
+  border: 1px solid #ccc2;
+  border-radius: 0.25rem;
+  padding: 0.25rem 1rem;
+  .top {
+    span {
+      color: #aaa;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      p {
+        margin: 0;
+      }
+      button {
+        mat-icon {
+          font-size: 1.3rem;
+          &:hover {
+            color: #fff;
+          }
+        }
+      }
+      & > mat-icon {
+        font-size: 0.9rem;
+        margin-bottom: -0.65rem;
+      }
+    }
+  }
+  .content {
+    cursor: pointer;
+    margin: 0.5rem 0;
+    p {
+      font-size: 1rem;
+      margin: 0;
+    }
+  }
+  .more {
+    color: #aaa;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    button {
+      mat-icon {
+        font-size: 1.3rem;
+        &:hover {
+          color: #fff;
+        }
+      }
+      margin-top: -0.1rem;
+    }
+    p {
+      cursor: pointer;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      mat-icon {
+        font-size: 1.3rem;
+        margin-bottom: -0.4rem;
+      }
+    }
+  }
+}

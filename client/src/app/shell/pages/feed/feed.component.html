@@ -1,0 +1,17 @@
+<div class="container">
+  <ng-container *ngIf="feed$ | async as feed">
+    <ng-container *ngIf="feed.length; else noData">
+      <ng-container *ngFor="let post of feed">
+        <app-post [post]="post"></app-post>
+      </ng-container>
+    </ng-container>
+    <ng-template #noData>
+      <div class="no-data">
+        <p>
+          No Post's Yet! Visit <a routerLink="../public">Public</a> or Checkout
+          Awesome <a routerLink="../people">People</a> to Follow!
+        </p>
+      </div>
+    </ng-template>
+  </ng-container>
+</div>

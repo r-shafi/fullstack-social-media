@@ -1,0 +1,22 @@
+<h2 mat-dialog-title>Create Post</h2>
+<mat-dialog-content>
+  <form [formGroup]="form">
+    <mat-form-field appearance="outline">
+      <mat-label>Post Content</mat-label>
+      <textarea matInput formControlName="body"></textarea>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Privacy</mat-label>
+      <mat-select formControlName="privacy">
+        <mat-option value="public">Public</mat-option>
+        <mat-option value="private">Private</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-stroked-button mat-dialog-close>Cancel</button>
+  <button mat-stroked-button (click)="createPost()" [disabled]="!form.valid">
+    Create Post
+  </button>
+</mat-dialog-actions>

@@ -1,0 +1,79 @@
+.container {
+  .top {
+    h3,
+    p {
+      margin: 0;
+      padding: 0;
+    }
+  }
+  .content {
+    margin: 1rem 0;
+    p {
+      margin: 0;
+      font-size: 1.3rem;
+    }
+  }
+  .likes {
+    display: flex;
+    align-items: center;
+    p {
+      margin: 0;
+    }
+    button {
+      mat-icon {
+        font-size: 1.3rem;
+        margin-top: -0.2rem;
+      }
+    }
+  }
+  .comments {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    .comment {
+      border: 1px solid #aaa4;
+      border-radius: 0.25rem;
+      padding: 0.5rem 1rem;
+      position: relative;
+      .delete {
+        position: absolute;
+        top: 0;
+        right: 0;
+        opacity: 0.8;
+        &:hover {
+          color: #f00;
+        }
+      }
+      h4,
+      p {
+        margin: 0;
+        font-size: 1rem;
+      }
+    }
+  }
+  .new-comment {
+    margin-bottom: 2rem;
+    form {
+      width: 100%;
+      mat-form-field {
+        width: 100%;
+        margin: 0;
+      }
+      button {
+        margin-top: -1rem;
+      }
+    }
+  }
+}
+
+p.time-date {
+  font-size: 0.8rem !important;
+  color: #fff8;
+}
+
+.fade-out {
+  pointer-events: none;
+  opacity: 0.3;
+  transition: opacity 0.5s;
+}

@@ -1,0 +1,26 @@
+<mat-toolbar class="blur">
+  <div class="toolbar-container">
+    <h2 routerLink="/">Social Media</h2>
+    <span class="spacer"></span>
+    <nav>
+      <button mat-icon-button (click)="lazyDialog.openDialog('create-post')">
+        <mat-icon>add</mat-icon>
+      </button>
+      <a routerLink="feed" routerLinkActive="active-link">Feed</a>
+      <a routerLink="public" routerLinkActive="active-link">Public</a>
+      <a routerLink="people" routerLinkActive="active-link">People</a>
+      <ng-container *ngIf="currentUser$ | async as user">
+        <a routerLink="profile" routerLinkActive="active-link">
+          {{ user.name | titlecase }}
+        </a>
+      </ng-container>
+      <a routerLink="search" routerLinkActive="active-link">Search</a>
+      <button mat-stroked-button (click)="logout()" color="warn">Logout</button>
+    </nav>
+  </div>
+</mat-toolbar>
+<div class="container">
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+</div>

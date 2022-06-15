@@ -1,0 +1,22 @@
+<div class="container">
+  <ng-container *ngIf="users$ | async as users">
+    <ng-container *ngFor="let user of users">
+      <div class="user">
+        <h2 [routerLink]="['..', 'user', user._id]">{{ user.name }}</h2>
+        <span>
+          <p>Followers: {{ user.followersCount }}</p>
+          <p>Following: {{ user.followingCount }}</p>
+          <p>Posts: {{ user.postsCount }}</p>
+        </span>
+        <button
+          *ngIf="!FUS.isUser(user._id)"
+          mat-stroked-button
+          [color]="FUS.isFollowing(user._id) ? 'warn' : 'primary'"
+          (click)="FUS.toggleFollow(user._id).subscribe()"
+        >
+          {{ FUS.isFollowing(user._id) ? "Unfollow" : "Follow" }}
+        </button>
+      </div>
+    </ng-container>
+  </ng-container>
+</div>

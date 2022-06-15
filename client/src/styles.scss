@@ -1,0 +1,145 @@
+@use "@angular/material" as mat;
+@include mat.core();
+
+$shafi-primary: (
+  50: #ffffe8,
+  100: #ffffc5,
+  200: #ffff9f,
+  300: #ffff79,
+  400: #ffff5c,
+  500: #ffff3f,
+  600: #ffff39,
+  700: #ffff31,
+  800: #ffff29,
+  900: #ffff1b,
+  A100: #ffffff,
+  A200: #ffffff,
+  A400: #ffffcc,
+  A700: #ffffb3,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #000000,
+    600: #000000,
+    700: #000000,
+    800: #000000,
+    900: #000000,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+
+$shafi-accent: (
+  50: #fde5e8,
+  100: #fabdc5,
+  200: #f7919e,
+  300: #f46577,
+  400: #f14459,
+  500: #ef233c,
+  600: #ed1f36,
+  700: #eb1a2e,
+  800: #e81527,
+  900: #e40c1a,
+  A100: #ffffff,
+  A200: #ffdbdd,
+  A400: #ffa8ac,
+  A700: #ff8f94,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+
+$shafi-warn: (
+  50: #f1f9e5,
+  100: #dcefbe,
+  200: #c5e493,
+  300: #add967,
+  400: #9cd147,
+  500: #8ac926,
+  600: #82c322,
+  700: #77bc1c,
+  800: #6db517,
+  900: #5aa90d,
+  A100: #e9ffd7,
+  A200: #cdffa4,
+  A400: #b1ff71,
+  A700: #a3ff58,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #000000,
+    600: #000000,
+    700: #000000,
+    800: #000000,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+
+$primary: mat.define-palette($shafi-primary);
+$accent: mat.define-palette($shafi-warn);
+$warn: mat.define-palette($shafi-accent);
+
+$theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: $primary,
+      accent: $accent,
+      warn: $warn,
+    ),
+  )
+);
+
+@include mat.all-component-themes($theme);
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background: #000005;
+  color: #ffffff;
+}
+
+mat-dialog-content {
+  max-width: 600px;
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 60vw;
+    max-width: 500px;
+    mat-checkbox,
+    mat-radio-button {
+      margin-bottom: 0.5rem;
+    }
+    form {
+      width: 100%;
+    }
+  }
+}

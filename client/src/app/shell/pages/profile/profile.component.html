@@ -1,0 +1,23 @@
+<ng-container *ngIf="user$ | async as user">
+  <section>
+    <h1>{{ user.name }}</h1>
+    <p>{{ user.email }}</p>
+  </section>
+  <button
+    *ngIf="!FUS.isUser(user._id)"
+    mat-stroked-button
+    [color]="FUS.isFollowing(user._id) ? 'warn' : 'primary'"
+    (click)="FUS.toggleFollow(user._id)"
+  >
+    {{ FUS.isFollowing(user._id) ? "Unfollow" : "Follow" }}
+  </button>
+  <section>
+    <p>Followers: {{ user.followers.length }} Users</p>
+    <p>Following: {{ user.following.length }} Users</p>
+  </section>
+  <section class="posts">
+    <ng-container *ngFor="let post of user.posts">
+      <app-post [post]="post"></app-post>
+    </ng-container>
+  </section>
+</ng-container>
